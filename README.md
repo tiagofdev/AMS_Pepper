@@ -1,5 +1,6 @@
 <img width="445" height="129" alt="image" src="https://github.com/user-attachments/assets/eebf3f50-592e-475b-b85a-3a3101a86515" />
 
+<img width="599" height="1068" alt="image" src="https://github.com/user-attachments/assets/10effeba-8cd9-43ea-ba7b-3cbf327c3daa" />
  
 
 # Projet AMS Robot Pepper
