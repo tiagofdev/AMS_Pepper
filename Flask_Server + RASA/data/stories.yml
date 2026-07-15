@@ -1,0 +1,193 @@
+version: "3.1"
+
+stories:
+
+
+- story: saluer
+  steps:
+   - intent: salutation
+   - action: utter_salutation
+
+
+
+- story: joyeux
+  steps:
+   - intent: humeur_joyeuse
+   - action: utter_content
+
+- story: réconforter
+  steps:
+   - intent: humeur_malheureuse
+   - action: utter_reconforter
+
+- story: répondre au challenge
+  steps:
+   - intent: challenger_robot
+   - action: utter_challenge
+
+- story: nom
+  steps:
+    - intent: donner_nom
+    - action: utter_reponse_nom
+
+- story: âge
+  steps:
+    - intent: donner_age
+    - action: utter_reponse_age
+
+- story: origine
+  steps:
+    - intent: donner_origine
+    - action: utter_reponse_origine
+
+- story: taille
+  steps:
+    - intent: donner_taille
+    - action: utter_reponse_taille
+
+- story: poids
+  steps:
+    - intent: donner_poids
+    - action: utter_reponse_poids
+
+- story: renseignement université d'Avignon
+  steps:
+   - intent: renseignement_universite
+   - action: utter_renseignement_universite
+
+- story: renseignement France
+  steps:
+   - intent: renseignement_france
+   - action: utter_renseignement_france
+
+- story: renseignement ville d'Avignon
+  steps:
+   - intent: renseignement_avignon
+   - action: utter_renseignement_avignon
+
+- story: réponse sur le nom du robot
+  steps:
+   - intent: demander_nom_robot
+   - action: utter_repondre_mon_nom
+   - intent: demander_origine_nom
+   - action: utter_repondre_origine_nom
+
+- story: réponse sur la langue du robot
+  steps:
+   - intent: demander_langues
+   - action: utter_reponse_langues
+
+- story: réponse sur la nationalité du robot
+  steps:
+   - intent: demander_nationalite
+   - action: utter_reponse_nationalite
+   - intent: demander_origine_nationalite
+   - action: utter_repondre_origine_nationalite
+
+- story: répondre sur la caractéristiques du robot
+  steps:
+   - intent: demander_caracteristiques
+   - action: utter_reponse_caracteristiques
+
+- story: renseignement sur le robot
+  steps:
+   - intent: renseignement_robot
+   - action: utter_renseignement_robot
+
+- story: reponse sur question chatgpt
+  steps:
+    - intent: question_gpt
+    - action: utter_renseignement_gpt
+
+- story: reponse restaurant avignon
+  steps:
+    - intent: ask_restaurants_avignon
+    - action: utter_provide_restaurants_avignon
+
+- story: reponse remerciement
+  steps:
+    - intent: remerciement
+    - action: utter_reponse_remerciement
+
+- story: consultation edt
+  steps:
+    - intent: consulter_edt
+    - action: edt_form
+    - active_loop: edt_form
+    - active_loop: null
+    - action: utter_submit
+    - action: action_consulter_edt
+    - action: utter_ask_confirmation
+    - intent: affirm
+    - action: utter_reposer_question
+
+- story: oreintation batiment
+  steps:
+    - intent: orientation_batiment
+    - action: ob_form
+    - active_loop: ob_form
+    - active_loop: null
+    - action: utter_submit
+    - action: action_orienter_batiment
+    - action: utter_ask_confirmation
+    - intent: affirm
+    - action: utter_reposer_question
+
+- story: envoyer message prof
+  steps:
+    - intent: envoyer_message_prof
+    - action: tp_form
+    - active_loop: tp_form
+    - active_loop: null
+    - action: action_texter_prof
+    - action: utter_ask_confirmation
+    - intent: affirm
+    - action: utter_reposer_question
+
+- story: traduction
+  steps:
+    - intent: translate
+    - action: traduction_form
+    - active_loop: traduction_form
+    - active_loop: null
+    - action: action_translate
+    - action: utter_ask_confirmation
+    - intent: affirm
+    - action: utter_reposer_question
+
+- story: ollama
+  steps:
+    - intent: question_ollama
+    - action: ollama_form
+    - active_loop: ollama_form
+    - active_loop: null
+    - action: action_consulter_ollama
+
+- story: Socialiser avec l'utilisateur
+  steps:
+    - intent: socialisation
+    - action: utter_socialisation
+
+- story: faire des blagues
+  steps:
+    - intent: blagues
+    - action: utter_blagues
+
+
+- story: demander souvenirs
+  steps:
+    - intent: demander_souvenirs
+    - action: utter_partager_experiences
+
+- story: partager expérience
+  steps:
+    - intent: partager_une_experience
+    - action: utter_cool
+
+- story: reponse pour demande d'alternance
+  steps:
+    - intent: ask_url_alternance
+    - action: utter_donner_url_alternance
+    - action: utter_cela_convient
+    - intent: affirm
+    - action: utter_reposer_question

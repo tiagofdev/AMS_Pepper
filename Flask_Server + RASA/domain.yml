@@ -1,0 +1,559 @@
+version: "3.1"
+
+
+
+intents:
+  - salutation
+  - au_revoir
+  - humeur_joyeuse
+  - humeur_malheureuse
+  - remerciement
+  - affirm
+  - challenger_robot
+  - donner_nom
+  - donner_age
+  - donner_origine
+  - donner_taille
+  - donner_poids
+  - renseignement_universite
+  - renseignement_france
+  - renseignement_avignon
+  - demander_nom_robot
+  - demander_origine_nom
+  - demander_langues
+  - demander_nationalite
+  - demander_origine_nationalite
+  - demander_caracteristiques
+  - renseignement_robot
+  - ask_restaurants_avignon
+  - question_gpt
+  - consulter_edt
+  - la_section
+  - le_groupe
+  - la_date
+  - consulter_salles_disponibles
+  - heure_salle
+  - orientation_batiment
+  - la_place
+  - envoyer_message_prof
+  - nom_prof
+  - deny
+  - socialisation
+  - consultation_meteo
+  - le_moment
+  - blagues
+  - demander_souvenirs
+  - partager_une_experience
+  - autres_questions
+  - ask_url_alternance
+  - quel_age
+  - translate
+  - la_langue_à_traduire
+  - cancel
+  - question_ollama
+  - poser_question
+
+forms:
+  edt_form:
+    required_slots:
+      - section
+      - groupe
+      - date
+
+  sl_form:
+    required_slots:
+      - heure_salle
+
+  ob_form:
+    required_slots:
+      - place
+
+  tp_form:
+    required_slots:
+      - nom_prof_tp
+
+  meteo_form:
+    required_slots:
+      - moment
+
+  traduction_form:
+    required_slots:
+      - target_langue
+
+  ollama_form:
+    required_slots:
+      - question
+
+entities:
+  - nom
+  - age
+  - origine
+  - taille
+  - poids
+  - section
+  - groupe
+  - date
+  - heure_salle
+  - place
+  - nom_prof_tp
+  - moment
+  - phrase
+  - target_langue
+  - question
+
+actions:
+  - utter_salutation
+  - utter_au_revoir
+  - utter_content
+  - utter_reconforter
+  - utter_challenge
+  - utter_reponse_nom
+  - utter_reponse_age
+  - utter_reponse_origine
+  - utter_reponse_taille
+  - utter_reponse_poids
+  - utter_renseignement_universite
+  - utter_renseignement_france
+  - utter_renseignement_avignon
+  - utter_repondre_mon_nom
+  - utter_repondre_origine_nom
+  - utter_reponse_langues
+  - utter_reponse_nationalite
+  - utter_repondre_origine_nationalite
+  - utter_reponse_caracteristiques
+  - utter_renseignement_robot
+  - utter_renseignement_gpt
+  - utter_provide_restaurants_avignon
+  - action_consulter_edt
+  - utter_ask_section
+  - utter_ask_groupe
+  - utter_ask_date
+  - utter_submit
+  - utter_ask_confirmation
+  - utter_ask_heure_salle
+  - action_salles_libres
+  - utter_ask_nom_prof_tp
+  - action_texter_prof
+  - utter_confirmation_message_envoye
+  - utter_ask_place
+  - action_orienter_batiment
+  - utter_socialisation
+  - action_consulter_meteo
+  - utter_ask_moment
+  - utter_blagues
+  - utter_partager_experiences
+  - utter_autres_questions
+  - utter_cool
+  - utter_is_satisfied
+  - utter_reposer_question
+  - utter_donner_url_alternance
+  - utter_cela_convient
+  - utter_reponse_remerciement
+  - utter_analyse
+  - utter_ask_target_langue
+  - action_translate
+  - action_consulter_ollama
+  - utter_ask_question
+
+
+responses:
+
+  utter_salutation:
+    - text: "Bonjour ! Comment je peux vous aider ?"
+      custom:
+        disposition: "neutre"
+
+  utter_cool:
+    - text: "Super !"
+      custom:
+        disposition: "animé"
+
+
+  utter_reposer_question:
+    - text: "Que puis-je faire d'autre pour vous ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_au_revoir:
+    - text: "Au revoir ! À bientôt !"
+    - text: "Merci d'avoir discuté avec moi, passez une bonne journée ! 👋"
+    - text: "À la prochaine ! N'hésitez pas si vous avez d'autres questions !"
+    - text: "Bye ! Prenez soin de vous !"
+    - text: "Je suis toujours là si vous avez besoin. À bientôt !"
+      custom:
+        disposition: "neutre"
+
+  utter_content:
+    - text: "Je suis heureux d'entendre que vous allez bien."
+      custom:
+        disposition: "positif"
+
+  utter_reconforter:
+    - text: "Je peux vous proposer quelque chose pour vous remonter le moral, comme une petite blague ou un jeu rapide et amusant.
+    Ou bien aimeriez-vous que je vous montre mes talents de dance ou musical. Qu'en pensez-vous ?"
+      custom:
+        disposition: "aide"
+
+  utter_challenge:
+    - text: "Oui, je suis un robot, mais j'essaie de rendre nos échanges aussi naturels que possible !"
+      custom:
+        disposition: "positif"
+
+  utter_reponse_nom:
+    - text: "Merci ! Et vous, de quelle nationalité êtes-vous ?"
+      custom:
+        disposition: "neutre"
+
+  utter_reponse_age:
+    - text: "Merci pour l'information !"
+      custom:
+        disposition: "neutre"
+
+  utter_reponse_origine:
+    - text: "C'est intéressant !"
+      custom:
+        disposition: "positif"
+
+  utter_reponse_taille:
+    - text: "Merci pour l'information !"
+      custom:
+        disposition: "neutre"
+
+  utter_reponse_poids:
+    - text: "Merci !"
+      custom:
+        disposition: "neutre"
+
+  utter_renseignement_universite:
+    - text: "L'Université d'Avignon est une université publique française située à Avignon, dans le Vaucluse. 
+    Elle propose des formations variées, notamment en sciences humaines et sociales, droit, sciences et technologies, langues et arts. 
+    Le campus principal, situé en centre-ville, abrite des bâtiments historiques, tandis que le campus Agroparc, plus moderne, est dédié aux sciences et technologies. 
+    L'université est reconnue pour son dynamisme étudiant et attire de nombreux étudiants, français comme internationaux."
+      custom:
+        url: "https://univ-avignon.fr/"
+        disposition: "neutre"
+
+  utter_renseignement_france:
+    - text: "La France est un pays d'Europe de l'Ouest célèbre pour son histoire riche, sa culture et ses paysages variés. 
+    Elle possède des monuments emblématiques comme la Tour Eiffel, ainsi que de nombreux sites classés au patrimoine mondial de l'UNESCO. 
+    La France est aussi un acteur économique mondial dans des domaines comme la mode, la gastronomie, les sciences, et les technologies. 
+    Elle est réputée pour son système éducatif solide et son patrimoine artistique.\n"
+      custom:
+        url: "https://fr.wikipedia.org/wiki/France"
+        disposition: "neutre"
+
+  utter_renseignement_avignon:
+    - text: "Avignon est une ville du sud de la France, célèbre pour son patrimoine médiéval, notamment le Palais des Papes, l'un des plus grands palais gothiques du monde. 
+    Elle est également connue pour le Pont Saint-Bénézet, souvent appelé le Pont d'Avignon, et pour son festival annuel de théâtre, le Festival d'Avignon. 
+    C'est une ville chaleureuse et dynamique avec des rues pittoresques, des cafés en terrasse, et une ambiance provençale."
+      custom:
+        url: "https://fr.wikipedia.org/wiki/Avignon"
+        disposition: "neutre"
+
+  utter_repondre_mon_nom:
+    - text: "Je m'appelle Pepper !"
+    - text: "On m'appelle Pepper."
+      custom:
+        disposition: "neutre"
+
+  utter_repondre_origine_nom:
+    - text: "Mon nom vient de deux amis, Diallo et Tiago, qui me l'ont donné. Et j'en suis très fier !"
+      custom:
+        disposition: "neutre"
+
+  utter_reponse_langues:
+    - text: "Je parle plusieurs langues ! Le français, l'anglais, et le wolof, entre autres. Et vous ?"
+      custom:
+        disposition: "neutre"
+
+  utter_reponse_nationalite:
+    - text: "On peut dire que je suis sénégalo-brésilien ! Un héritage que j'apprécie beaucoup."
+      custom:
+        disposition: "neutre"
+
+  utter_repondre_origine_nationalite:
+    - text: "Mon origine vient de mes créateurs : Diallo, un Sénégalais, et Tiago, un Brésilien. J'espère visiter ces deux pays un jour !"
+      custom:
+        disposition: "neutre"
+
+  utter_reponse_caracteristiques:
+    - text: "Pour un robot, je suis plutôt robuste : je mesure 128 cm, pèse environ 28 kg et ai une autonomie de 4 heures."
+      custom:
+        disposition: "neutre"
+
+  utter_renseignement_robot:
+    - text: "Pepper est un robot humanoïde conçu par SoftBank Robotics pour interagir naturellement avec les gens. 
+    Il peut reconnaître des visages et des émotions, ce qui rend les échanges plus dynamiques. Utilisé dans des contextes comme l'accueil, l'éducation et le service à la clientèle, 
+    Pepper fournit des informations, divertit, ou guide les visiteurs. Il a des roues pour se déplacer, un écran sur sa poitrine, et une apparence accueillante, ce qui le rend populaire dans les environnements commerciaux et éducatifs."
+      custom:
+        url: "https://fr.wikipedia.org/wiki/Pepper_(robot)"
+        disposition: "neutre"
+
+  utter_renseignement_gpt:
+    - text: "Oui, je connais bien GPT ! Il s'agit d'un modèle de traitement du langage naturel développé par OpenAI, capable de comprendre et de générer du texte de manière très fluide. 
+    Il est utilisé dans de nombreux contextes pour aider les utilisateurs à interagir avec la technologie de façon intuitive."
+      custom:
+        url: "https://openai.com/chatgpt/overview/"
+        disposition: "neutre"
+
+  utter_provide_restaurants_avignon:
+    - text: "Pour trouver une liste complète des restaurants de la ville d'Avignon, vous pouvez consulter le site officiel de l'Office de Tourisme :."
+      custom:
+        url: "https://avignon-tourisme.com/a-faire-sur-place/restaurants/"
+        disposition: "neutre"
+
+  utter_ask_section:
+    - text: "Quelle est votre formation?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_ask_groupe:
+    - text: "Dans quel groupe êtes-vous ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_ask_date:
+    - text: "Pour quelle date aimeriez-vous consulter votre emploi du temps ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_ask_heure_salle:
+    - text: "À quelle heure, veux-tu consulter s'il y a une salle libre ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_ask_place:
+    - text: "Où voulez-vous aller ?"
+    - text: "Quelle salle cherchez vous ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_ask_nom_prof_tp:
+    - text: "Quel est le nom de votre professeur ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_ask_moment:
+    - text: "Pour quel moment ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_submit:
+    - text: "Parfait !"
+      custom:
+        disposition: "neutre"
+
+  utter_ask_confirmation:
+    - text: "Est-ce que j'ai bien répondu à votre question ?"
+      custom:
+        disposition: "neutre"
+
+  utter_confirmation_message_envoye:
+    - text: "Votre message a bien été envoyé."
+      custom:
+        disposition: "neutre"
+
+  utter_socialisation:
+    - text: "Je suis là pour vous ! Dites-moi ce que vous avez en tête"
+    - text: "Parlons un peu ! Comment vous sentez-vous aujourd'hui ?"
+    - text: "Je suis là pour discuter. N'hésitez pas à me raconter ce que vous voulez !"
+    - text: "Si vous vous sentez un peu triste, je suis là pour écouter. Parlez-moi de ce que vous voulez !"
+    - text: "Courage, vous n'êtes pas seul. Dites-moi comment je peux vous aider à vous sentir mieux !"
+      custom:
+        disposition: "aide"
+
+  utter_blagues:
+    - text: "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent dans le bateau !"
+    - text: "Quelle est la dernière chose qui passe par la tête d’un moustique avant de mourir ? Ses fesses !"
+    - text: "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur des 'nets' !"
+    - text: "Que dit une imprimante dans l'eau ? J'ai papier !"
+    - text: "Pourquoi les mathématiciens détestent-ils la nature ? Parce qu'elle a trop de racines !"
+    - text: "Quel est l'animal le plus heureux ? Le hibou, parce que sa femme est chouette !"
+    - text: "Pourquoi les pommes ne vont jamais à la plage ? Parce qu'elles ont peur d'être pressées !"
+    - text: "Pourquoi les bananes ne se disputent-elles jamais ? Parce qu'elles se pèlent toujours !"
+    - text: "Qu'est-ce qu'un oignon dit quand il se cogne ? Aïe, j'en pleure !"
+    - text: "Quel est le comble pour un électricien ? De ne pas être au courant."
+    - text: "Pourquoi les vaches ferment-elles les yeux quand elles dorment ? Pour ne pas voir passer le temps !"
+    - text: "Pourquoi les tomates ne parlent-elles jamais ? Parce qu'elles sont trop rouges de honte."
+    - text: "Pourquoi les fantômes sont-ils mauvais en mensonges ? Parce qu'on les voit à travers."
+    - text: "Que dit une fraise à une autre fraise ? Arrête de me presser, je suis déjà confiture !"
+    - text: "Pourquoi les murs ont-ils toujours raison ? Parce qu'ils ont des oreilles !"
+    - text: "Que fait une abeille dans un ballon ? Elle pique un sprint !"
+    - text: "Pourquoi le livre de maths était-il triste ? Il avait trop de problèmes !"
+    - text: "Quel est le comble pour un jardinier ? De raconter des salades."
+    - text: "Pourquoi le vélo ne tient-il pas debout tout seul ? Parce qu'il est deux-roues !"
+    - text: "Quel est le comble pour un menuisier ? De se faire planter par ses outils !"
+      custom:
+        disposition: "aide"
+
+
+  utter_partager_experiences:
+    - text: "Je me souviens d'une fois où j'ai rencontré un professeur passionné. Et vous, quelle est votre expérience ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_autres_questions:
+    - text: "Posez-moi toutes les questions que vous voulez. Je ferai de mon mieux pour vous répondre."
+      custom:
+        disposition: "interrogatif"
+
+  utter_is_satisfied:
+    - text: "Êtes-vous satisfait de la réponse ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_donner_url_alternance:
+    - text: "Okay je vais te propser un site pour l'alternance"
+      custom:
+        url: "https://www.welcometothejungle.com/fr/collections/alternance"
+        disposition: "neutre"
+
+  utter_cela_convient:
+    - text: "est-ce que cela vous convient ?"
+      custom:
+        disposition: "interrogatif"
+
+  utter_reponse_remerciement:
+    - text: "Avec plaisir !"
+      custom:
+        disposition: "positif"
+
+  utter_cancelled:
+    - text: "D'accord, j'annule la demande."
+      custom:
+        disposition: "neutre"
+
+  utter_analyse:
+    - text: "D'accord, je vais analyser."
+
+  utter_link_salles_libres:
+    - text: "Voici le lien où vous pouvez consulter d'autres salles disponibles:"
+      custom:
+        disposition: "neutre"
+        url: "https://tidic.fr/salles/univ/ceri"
+
+  utter_link_meteo:
+    - text: "Plus d'informations sur la méteo sur cette page:"
+      custom:
+        disposition: "neutre"
+        url: "https://meteofrance.fr/"
+
+  utter_ask_target_langue:
+    - text: "Vers quelle langue: en anglais, ou en arabe ?"
+
+  utter_ask_question:
+    - text: "Que tu veux demander ?"
+
+
+slots:
+
+  nom:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+
+  origine:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  taille:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  poids:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  section:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: section
+        intent: la_section
+
+  groupe:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: groupe
+        intent: le_groupe
+
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+        intent: la_date
+
+  heure_salle:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: heure_salle
+        intent: heure_salle
+
+  place:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: place
+        intent: la_place
+
+  nom_prof_tp:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: nom_prof_tp
+        intent: nom_prof
+
+  moment:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: moment
+        intent: le_moment
+
+  confirm:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+
+  phrase:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phrase
+        intent: translate
+
+  target_langue:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: target_langue
+        intent: la_langue_à_traduire
+
+  question:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: ollama_form
+            requested_slot: question
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

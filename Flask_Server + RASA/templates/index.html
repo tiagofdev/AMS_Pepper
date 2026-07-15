@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .chat-box { width: 300px; margin: 0 auto; }
+        .chat-log { height: 300px; border: 1px solid #ccc; overflow-y: scroll; margin-bottom: 10px; }
+        .chat-log p { margin: 5px; padding: 5px; border-radius: 5px; }
+        .user-message { background-color: #f1f1f1; text-align: right; }
+        .bot-message { background-color: #d1f1d1; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+        <div class="chat-log" id="chat-log"></div>
+        <input type="text" id="user-input" placeholder="Entrez votre message" style="width: 100%;">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+
+    <script>
+        function displayMessage(message, sender) {
+            const chatLog = document.getElementById('chat-log');
+            const newMessage = document.createElement('p');
+            newMessage.classList.add(sender);
+            newMessage.textContent = message;
+            chatLog.appendChild(newMessage);
+
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        window.onload = function() {
+            displayMessage("Bot: Bonjour, bienvenue, Que puis-je faire pour vous ?", "bot-message");
+
+            // Add an event listener to detect "Enter" key press
+            const inputField = document.getElementById('user-input');
+            inputField.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    sendMessage();  // Call sendMessage on "Enter" key press
+                    event.preventDefault();  // Prevent default form submission behavior
+                }
+            });
+        };
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput) {
+                displayMessage("You: " + userInput, "user-message");
+
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userInput }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.replies && Array.isArray(data.replies)) {
+                            data.replies.forEach(reply => {
+                                displayMessage("Bot: " + reply, "bot-message");
+                            });
+                        } else {
+                            displayMessage("Bot: " + (data.reply || "Je n'ai pas compris."), "bot-message");
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+
+                document.getElementById('user-input').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="ams1v9000-afd74a" version="0.0.1">
+ <names>
+  <name lang="en_US">AMS1</name>
+  <name lang="fr_FR">AMS1</name>
+ </names>
+ <descriptions>
+  <description lang="fr_FR">Robot programmer pour parler en Français</description>
+ </descriptions>
+ <descriptionLanguages>
+  <language>fr_FR</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <robotRequirement model="JULIETTE"/>
+ </requirements>
+</package>

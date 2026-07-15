@@ -1,0 +1,547 @@
+version: "3.1"
+
+nlu:
+- intent: salutation
+  examples: |
+    - Coucou
+    - Salut
+    - Bonjour
+    - Bonsoir
+    - Salut, comment ça va ?
+    - Hey !
+    - Salut, tout va bien ?
+    - Salut, comment vas-tu ?
+    - Bonjour à toi
+    - Salut, ça fait plaisir de te voir !
+    - Yo
+    - Hello
+    - Bon matin
+    - Bien le bonjour
+    - Salut à toi
+
+- intent: remerciement
+  examples: |
+    - Je te remercie
+    - Merci
+    - Merci beaucoup
+    - Merci infiniment
+    - Merci bien
+    - Merci pour ton aide
+    - Merci pour tout
+    - Merci, c’est sympa
+    - Mille mercis
+    - Je suis reconnaissant
+    - C'est gentil, merci
+    - Merci pour l'info
+
+- intent: affirm
+  examples: |
+    - Oui
+    - Bien sûr
+    - Affirmatif
+    - Vas-y
+    - Oui, je suis d'accord
+    - Absolument
+    - Oui, c'est bon
+    - Tout à fait
+    - C'est exact
+    - Evidemment
+    - Avec plaisir
+    - Bien entendu
+    - Sans hésitation
+    - Carrément
+    - Naturellement
+
+- intent: au_revoir
+  examples: |
+    - Bye
+    - Au revoir
+    - À Dieu
+    - À plus tard
+    - Ciao
+    - À bientôt
+    - À plus
+    - Prends soin de toi
+    - Adieu
+    - À une prochaine
+    - On se revoit bientôt
+    - Au plaisir
+    - Tchao
+    - Je te laisse
+    - Salut et à la prochaine
+
+- intent: humeur_joyeuse
+  examples: |
+    - Parfait
+    - Excellent
+    - Incroyable
+    - Merveilleux
+    - Magnifique
+    - Beau
+    - Je me sens bien
+    - Je vais très bien
+    - Je suis de bonne humeur
+    - Tout va parfaitement bien
+    - Je suis au top
+    - Je suis content
+    - Ça va super
+    - Ça ne pourrait pas être mieux
+    - Je suis en pleine forme
+    - Tout se passe comme prévu
+    - Je suis vraiment heureux aujourd'hui
+
+- intent: humeur_malheureuse
+  examples: |
+    - Ma journée est horrible
+    - Je suis triste
+    - Je ne me sens pas bien
+    - Super triste
+    - Journée ennuyeuse
+    - Je suis déprimé
+    - C’est une journée difficile
+    - Je me sens mal
+    - Pas le moral aujourd’hui
+    - C'est vraiment pas ma journée
+    - Ça ne va pas fort
+    - Je me sens seul
+    - Je suis déçu
+    - J'ai passé une mauvaise journée
+    - Je ne suis pas en forme aujourd’hui
+
+- intent: challenger_robot
+  examples: |
+    - Es-tu un robot ?
+    - Es-tu un humain ?
+    - Tu es réel ?
+    - T’es une machine ?
+    - Tu es un programme ou un humain ?
+    - Est-ce que tu penses vraiment ?
+    - Es-tu intelligent ?
+    - Peux-tu penser comme un humain ?
+    - As-tu des émotions ?
+    - Sais-tu que tu es un robot ?
+
+- intent: donner_nom
+  examples: |
+    - Je m'appelle [John](nom)
+    - Mon nom est [Sarah](nom)
+    - Je suis [Mark](nom)
+    - Je suis [X](nom)
+    - Je me prénomme [Emma](nom)
+    - Moi, c'est [Lucas](nom)
+    - Tu peux m'appeler [Noémie](nom)
+
+- intent: donner_age
+  examples: |
+    - J'ai [25](age) ans
+    - Je suis âgé de [30](age) ans
+    - J'ai [22](age)
+    - J'ai [18](age) ans
+    - Mon âge est de [20](age) ans
+    - J'ai atteint les [35](age) ans
+    - J'ai un âge de [40](age) ans
+
+- intent: donner_origine
+  examples: |
+    - Je viens de [France](origine)
+    - Mon origine est [Sénégal](origine)
+    - Je suis du [Sénégal](origine)
+    - Je suis originaire de [Maroc](origine)
+    - Ma nationalité est [Belge](origine)
+    - Je suis [Algérien](origine)
+    - Je viens de [Canada](origine)
+
+- intent: donner_taille
+  examples: |
+    - Ma taille est de [180cm](taille)
+    - Je mesure [170](taille) cm
+    - Ma hauteur est de [1.75](taille) mètres
+    - J’ai une taille de [160](taille) cm
+    - Je fais [150](taille) centimètres
+
+- intent: donner_poids
+  examples: |
+    - Mon poids est de [70kg](poids)
+    - Je pèse [65](poids) kg
+    - J'ai un poids de [80](poids) kilogrammes
+    - Mon poids est environ [60](poids) kg
+    - Je fais [75](poids) kilos
+
+- intent: renseignement_universite
+  examples: |
+    - Parle-moi de l'université d'Avignon
+    - Que sais-tu sur l'université d'Avignon ?
+    - Donne-moi des infos sur l'université d'Avignon
+    - Raconte-moi l’histoire de cette université
+    - L’université d’Avignon, ça ressemble à quoi ?
+    - Quels sont les domaines étudiés là-bas ?
+    - Quelles sont les spécificités de cette université ?
+
+- intent: renseignement_france
+  examples: |
+    - Parle-moi de la France
+    - Que sais-tu sur la France ?
+    - Dis-moi quelque chose sur la France
+    - Quels sont les points intéressants de la France ?
+    - Donne-moi des informations sur le pays
+    - Parle-moi des coutumes françaises
+
+- intent: renseignement_avignon
+  examples: |
+    - Parle-moi de la ville d'Avignon
+    - Que sais-tu de la ville d'Avignon ?
+    - Dis-moi quelque chose sur Avignon
+    - Que peut-on voir à Avignon ?
+    - C’est comment la vie à Avignon ?
+    - Quelles sont les attractions d'Avignon ?
+
+- intent: question_gpt
+  examples: |
+    - Tu connais chatGpt
+    - Connais-tu chatgpt ?
+    - Parle-moi de GPT
+    - Qu’est-ce que chatGPT ?
+    - Que fait GPT ?
+
+- intent: demander_nom_robot
+  examples: |
+    - Comment-tu t'appelles ?
+    - Peux-tu révéler ton nom ?
+    - As-tu un nom ?
+    - Comment puis-je t’appeler ?
+    - Comment te nommes-tu ?
+
+- intent: demander_origine_nom
+  examples: |
+    - D'où tu sors ce nom ?
+    - Qui t'a donné ce nom ?
+    - Comment as-tu eu ton nom ?
+    - Quelle est l’origine de ton nom ?
+
+- intent: demander_langues
+  examples: |
+    - Quelles langues parles-tu ?
+    - Tu parles quelles langues ?
+    - Combien de langues connais-tu ?
+    - Tu peux communiquer dans combien de langues ?
+    - Quelles sont tes compétences linguistiques ?
+
+- intent: demander_nationalite
+  examples: |
+    - Quelle est ta nationalité ?
+    - Tu es de quelle origine ?
+    - De quel pays viens-tu ?
+    - C’est quoi ta nationalité ?
+    - Tu as une nationalité ?
+    - Est-ce que tu as une origine ?
+    - Est-ce que tu as une nationalité ?
+
+- intent: demander_origine_nationalite
+  examples: |
+    - Qui t'a donné cette nationalité ?
+    - D'où vient ta nationalité ?
+    - Comment as-tu cette nationalité ?
+    - Quelle est l’origine de ta nationalité ?
+
+- intent: demander_caracteristiques
+  examples: |
+    - Quelles sont tes caractéristiques ?
+    - Peux-tu me dire tes caractéristiques ?
+    - Décris-toi
+    - Quelles sont tes fonctionnalités ?
+
+- intent: renseignement_robot
+  examples: |
+    - Parle-moi de toi
+    - Que peux-tu faire ?
+    - Décris tes capacités
+    - Quels sont tes talents ?
+    - Quels sont tes atouts ?
+
+- intent: socialisation
+  examples: |
+    - Parle-moi un peu
+    - Je veux discuter avec toi
+    - Peux-tu me remonter le moral ?
+    - Je me sens un peu triste aujourd'hui
+    - On peut parler un peu ?
+
+- intent: ask_restaurants_avignon
+  examples: |
+    - Quels sont les restaurants disponibles à Avignon ?
+    - Où manger à Avignon ?
+    - Peux-tu me donner une liste des restaurants à Avignon ?
+    - J'aimerais connaître les restaurants de la ville d'Avignon.
+    - Tu as une liste des restaurants à Avignon ?
+    - Où je peux aller manger à Avignon ?    
+
+- intent: blagues
+  examples: |
+    - Peux-tu me raconter des blagues ?
+    - Raconte-moi une blague
+    - J'ai envie de rigoler, dis une blague
+    - J'aimerais entendre une blague
+    - T’as des blagues ?
+
+- intent: demander_souvenirs
+  examples: |
+    - Quels souvenirs gardes-tu de l'université ?
+    - Parle-moi de tes souvenirs d'études
+    - Que te rappelles-tu de tes années à l'école ?
+    - Raconte-moi un souvenir mémorable
+    - Partage un souvenir avec moi
+
+- intent: partager_une_experience
+  examples: |
+    - Je me souviens de la fois où j'ai rencontré un professeur incroyable.
+    - Une fois, j'ai participé à un projet qui a changé ma vie.
+    - J'ai vécu une expérience inoubliable lors d'une excursion.
+    - Récemment, j'ai assisté à un séminaire très inspirant.
+    - Je me rappelle cette aventure unique que j'ai vécue.
+    - Une expérience marquante a été mon premier stage.
+    - J’ai une expérience qui m’a profondément marqué.
+    - Un jour, j’ai eu une expérience incroyable.
+
+- intent: deny
+  examples: |
+    - non
+    - ce n'est pas bon
+    - impossible
+    - je ne pense pas
+    - je refuse
+
+- intent: consulter_edt
+  examples: |
+    - emploi du temps
+    - j'aimerais consulter mon emploi du temps
+    - peux-tu me montrer mon emploi du temps ?
+    - je veux voir mon emploi du temps
+    - je veux consulter mon emploi du temps
+    - pourrais-je avoir mon emploi du temps 
+    - donne-moi mon emploi du temps 
+    - j'aimerais connaître mon emploi du temps
+    - montre-moi mon emploi du temps 
+    - est-ce que tu as mon emploi du temps
+    - est-ce que tu peux me donner mon emploi du temps ?
+    - quel est mon emploi du temps 
+
+- intent: la_section
+  examples: |
+    - [m1 ilsen](section)
+    - [m1 ia](section)
+    - [m2 ilsen](section)
+    - [m2 ia](section)
+    - [l1 histoire](section)
+    - [master 1 ingénierie logiciel](section)
+    - [master 1 intelligence artificielle](section)
+    - [master 1 ilsen](section)
+    - [licence 3 informatique](section)
+    - [licence 2 math](section)
+
+- intent: le_groupe
+  examples: |
+    - [classique](groupe)
+    - [alternant](groupe)
+    - [groupe 1](groupe)
+
+- intent: la_date
+  examples: |
+    - le [20 décembre](date)
+    - pour [demain](date)
+    - [vendredi](date)
+    - le [22 décembre](date)
+    - [aujourd'hui](date)
+    - [cet apprès-midi](date)
+    - [lundi](date)
+    - [mardi](date)
+    - [mercredi](date)
+    - [jeudi](date)
+    - [14 mai](date)
+    - [05 mai](date)
+    - [31 avril](date)
+    - [10 avril](date)
+    - [19 avril](date)
+
+- intent: consulter_salles_disponibles
+  examples: |
+    - je cherche une salle libre
+    - je cherche une salle disponible
+    - j'aimerais savoir quelles sont les salles disponibles 
+    - peux-tu me donner la liste des salles libres ?
+    - est-ce qu'il y a une salle libre ?
+    - pourrais-tu vérifier si une salle est disponible ?
+    - y a-t-il des salles disponibles ?
+    - est-ce que tu as la liste des salles libres ?
+    - je veux savoir s'il y a des salles disponibles 
+    - vérifie si y a des salles libres 
+    - quelles sont les salles disponibles ?
+
+- intent: heure_salle
+  examples: |
+    - à [midi](heure_salle)
+    - à [10h](heure_salle]
+    - [maintenant](heure_salle)
+    - [dans 1h](heure_salle)
+    - à [08h](heure_salle)
+    - [après-midi](heure_salle)
+    - à [14h30](heure_salle)
+    - à [16h30](heure_salle)
+    - à [09h](heure_salle)
+    - à [11h](heure_salle)
+    - à [11h30](heure_salle)
+    - à [17h](heure_salle)
+    - à [16h](heure_salle)
+    - à [8h30](heure_salle)
+    - à [14h](heure_salle)
+    - à [10h](heure_salle)
+    - à [13h](heure_salle)
+    - à [15h[(heure_salle)
+
+- intent: envoyer_message_prof
+  examples: |
+    - je cherche l'email de mon prof
+    - je cherche le contact de mon prof
+    - j'ai besoin le contact de mon professeur 
+    - pourrais-tu me donner l'email de mon prof ?
+    - j'aimerais avoir le contact de mon professeur 
+    - aide-moi à obtenir le contact d’un prof
+    - comment puis-je joindre mon prof 
+    - est-ce que tu peux trouver le contact de mon prof
+    - Je veux envoyer un mail à mon prof 
+    - j'aimerais avoir l'email de mon enseignant 
+    - j'aimerais avoir l'email de mon prof 
+
+- intent: nom_prof
+  examples: |
+    - Je veux contacter monsieur [paul](nom_prof_tp)
+    - aide moi à obtenir le contact d'un de mes professeurs
+    - Je cherche l'email de madame [sophie](nom_prof_tp)
+    - monsieur [bernard](nom_prof_tp)
+    - monsieur [lefevre](nom_prof_tp)
+    - monsieur [rouvier](nom_prof_tp)
+    - madame [nabitz](nom_prof_tp)
+    - madame [fredouille](nom_prof_tp)
+    - madame [koumpli](nom_prof_tp)
+    - madame [jourlin](nom_prof_tp)
+    - monsieur [rondin](nom_prof_tp)
+    - monsieur [fabrice](nom_prof_tp)
+    - madame [carole](nom_prof_tp)
+    - madame [sophie](nom_prof_tp)
+
+- intent: orientation_batiment
+  examples: |
+    - je cherche orientation
+    - j'ai besoin d'orientation
+    - je suis à la recherche d'une salle, peux-tu m'aider ?
+    - aide-moi à m'orienter
+    - je suis perdu, peux-tu m'aider ?
+    - je suis à la recherche d'un amphi
+    - je suis à la recherche d'un batiment
+    - comment trouver l'amphi à la quelle j'ai cours
+    - je suis à la recherche de ma salle de tp
+    - je veux aller à l'scolarité, mais je ne trouve pas le chemin
+    - tu peux m'indiquer le chemin
+
+- intent: la_place
+  examples: |
+    - la [salle 101](place)
+    - [salle 102](place)
+    - [salle 103](place)
+    - l'[amphithéâtre blaise](place)
+    - [amphi ada](place)
+    - [amphi blaise](place)
+    - oui c'est le [bâtiment administratif](place)
+    - [bâtiment du crous](place)
+    - [bureau du sécrétariat](place)
+    - le [laboratoire de chimie](place)
+    - [laboratoire de physique](place)
+    - [bibliothèque universitaire](place)
+    - la [salle des professeurs](place)
+    - le [cafétaria](place)
+    - [bâtiment iut](place)
+    - [bâtiment du ceri](place)
+    - [bâtiment agrosciences](place)
+    - [salle c137](place)
+    - [scolarité](place)
+    - [salle des robots](place)
+    - [toilettes](place)
+
+- intent: consultation_meteo
+  examples: |
+    - j'aimerais connaître la météo 
+    - je veux consulter la météo du jour
+    - peux-tu me dire la météo du jour 
+    - donne-moi la météo du jour
+
+- intent: le_moment
+  examples: |
+    - [cet instant](moment)
+    - [tôt le matin](moment)
+    - la [nuit](moment)
+    - le [matin](moment)
+    - dans la [matinée](moment)
+    - le [weekend](moment)
+    - ce [soir](moment)
+    - à [minuit](moment)
+    - [après-demain](moment) 
+    - à [05h du matin](moment)
+    - [fin d'après-midi](moment)
+    - [pendant le déjeuner](moment)
+    - à [19h](moment)
+
+- intent: ask_url_alternance
+  examples: |
+    - tu peux m'aider à trouver une liste de sites qui propose des postes d'alternants
+    - site pour trouver l'alternance
+    - site pour l'alternance
+    - où on peut-trouver l'alternance
+
+- intent: cancel
+  examples: |
+    - annule
+    - laisse tomber
+    - stop
+    - cancel
+    - j'ai changé d'avis
+    - oublie
+    - je veux annuler
+    - c'est plus la peine
+    - arrête
+
+- intent: quel_age
+  examples: |
+    - quel age ai je
+    - tu peux me dire quel age j'ai
+    - tu peux deviner quel est mon age
+    - quel est mon age
+
+- intent: translate
+  examples: |
+    - Traduis cette phrase [Bonjour comment ça va](phrase) ?
+    - Traduis le mot [maison](phrase)
+    - Traduire la phrase suivante [Je suis fatigué](phrase)
+    - je veux traduire [Pepper](phrase) ?
+    - je cherche la traduction de [t'as intérêt](phrase) ?
+    - Comment on traduit [soleil](phrase) ?
+    - Quelle est la traduction de [ordinateur](phrase) ?
+
+- intent: la_langue_à_traduire
+  examples: |
+    - en [anglais](target_langue)
+    - [arabe](target_langue)
+    - au [français](target_langue)
+
+- intent: question_ollama
+  examples: |
+    - j'ai une question ouverte
+    - j'ai une question à ollama
+    - je veux poser une question ouverte
+    - je veux poser une question à ollama
+    - question ouverte
+    - question à ollama
+
+- intent: poser_question
+  examples: |
+    - demande ollama [quel est la valeur de pi](question)
+    - my question est [pour quoi le ciel est bleu](question) ?
+    -  [quelle est la capitale de Létonie](question) ?

@@ -1,0 +1,258 @@
+version: "3.1"
+
+rules:
+
+- rule: saluer
+  steps:
+   - intent: salutation
+   - action: utter_salutation
+
+- rule: dites au revoir
+  steps:
+   - intent: au_revoir
+   - action: action_deactivate_loop
+   - active_loop: null
+   - action: utter_au_revoir
+
+
+
+
+- rule: répondre au challenge
+  steps:
+   - intent: challenger_robot
+   - action: utter_challenge
+
+
+- rule: renseignement université d'Avignon
+  steps:
+   - intent: renseignement_universite
+   - action: utter_renseignement_universite
+
+- rule: renseignement France
+  steps:
+   - intent: renseignement_france
+   - action: utter_renseignement_france
+
+- rule: renseignement ville d'Avignon
+  steps:
+   - intent: renseignement_avignon
+   - action: utter_renseignement_avignon
+
+
+- rule: réponse sur la langue du robot
+  steps:
+   - intent: demander_langues
+   - action: utter_reponse_langues
+
+
+
+- rule: répondre sur la caractéristiques du robot
+  steps:
+   - intent: demander_caracteristiques
+   - action: utter_reponse_caracteristiques
+
+- rule: renseignement sur le robot
+  steps:
+   - intent: renseignement_robot
+   - action: utter_renseignement_robot
+
+- rule: reponse sur question chatgpt
+  steps:
+    - intent: question_gpt
+    - action: utter_renseignement_gpt
+
+- rule: reponse restaurant avignon
+  steps:
+    - intent: ask_restaurants_avignon
+    - action: utter_provide_restaurants_avignon
+
+
+
+ #---------------------------------------- rule for edt
+
+- rule: Activate edt form
+  steps:
+    - intent: consulter_edt
+    - action: edt_form
+    - active_loop: edt_form
+
+- rule: Submit edt form
+  condition:
+    - active_loop: edt_form
+  steps:
+    - action: edt_form
+    - active_loop: null
+    - action: utter_submit
+    - action: action_consulter_edt
+    - action: utter_ask_confirmation
+  wait_for_user_input: false
+
+#..........................................................
+
+#-------------------------------------------------------- rule for salles libres
+
+- rule: Activate sl form
+  steps:
+      - intent: consulter_salles_disponibles
+      - action: sl_form
+      - active_loop: sl_form
+
+- rule: Submit sl form
+  condition:
+    - active_loop: sl_form
+  steps:
+    - action: sl_form
+    - active_loop: null
+    - action: utter_submit
+    - action: action_salles_libres
+    - action: utter_link_salles_libres
+
+#-------------------------------------------------------------
+
+#-------------------------------------------------------- rule for orientation batiment
+
+- rule: Activate ob form
+  steps:
+      - intent: orientation_batiment
+      - action: ob_form
+      - active_loop: ob_form
+
+- rule: Submit ob form
+  condition:
+    - active_loop: ob_form
+  steps:
+    - action: ob_form
+    - active_loop: null
+    - action: utter_submit
+    - action: action_orienter_batiment
+    - action: utter_ask_confirmation
+
+#-------------------------------------------------------------
+
+#-------------------------------------------------------- rule for texter prof
+
+- rule: Activate tp form
+  steps:
+      - intent: envoyer_message_prof
+      - action: tp_form
+      - active_loop: tp_form
+
+- rule: Submit tp form
+  condition:
+    - active_loop: tp_form
+  steps:
+    - action: tp_form
+    - active_loop: null
+    - action: action_texter_prof
+    - action: utter_ask_confirmation
+
+#-------------------------------------------------------------
+
+#-------------------------------------------------------- rule for meteo
+
+- rule: Activate meteo form
+  steps:
+      - intent: consultation_meteo
+      - action: meteo_form
+      - active_loop: meteo_form
+
+- rule: Submit meteo form
+  condition:
+    - active_loop: meteo_form
+  steps:
+    - action: meteo_form
+    - active_loop: null
+    - action: utter_submit
+    - action: action_consulter_meteo
+    - action: utter_link_meteo
+
+#------------------------------------------------------------ rule for translate
+
+- rule: Activate traduction form
+  steps:
+    - intent: translate
+    - action: traduction_form
+    - active_loop: traduction_form
+
+- rule: Submit traduction form
+  steps:
+    - action: traduction_form
+    - active_loop: null
+    - action: action_translate
+    - action: utter_ask_confirmation
+
+#------------------------------------------------------------- rule for Ollama
+
+- rule: Activate ollama form
+  steps:
+    - intent: question_ollama
+    - action: ollama_form
+    - active_loop: ollama_form
+
+- rule: Submit ollama form
+  condition:
+    - active_loop: ollama_form
+  steps:
+    - action: ollama_form
+    - active_loop: null
+    - action: action_consulter_ollama
+
+#--------------------------------------------------------
+
+- rule: Handle confirmation and clear slots
+  condition:
+    - slot_was_set:
+        - confirm: true
+  steps:
+    - intent: affirm
+    - action: utter_reposer_question
+
+- rule: Socialiser avec l'utilisateur
+  steps:
+    - intent: socialisation
+    - action: utter_socialisation
+
+- rule: faire des blagues
+  steps:
+    - intent: blagues
+    - action: utter_blagues
+
+- rule: autres questions
+  steps:
+    - intent: autres_questions
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: utter_autres_questions
+
+- rule: demander souvenirs
+  steps:
+    - intent: demander_souvenirs
+    - action: utter_partager_experiences
+
+- rule: partager expérience
+  steps:
+    - intent: partager_une_experience
+    - action: utter_cool
+
+- rule: reponse pour demande d'alternance
+  steps:
+    - intent: ask_url_alternance
+    - action: utter_donner_url_alternance
+    - action: utter_cela_convient
+
+- rule: Cancel any active form
+  steps:
+    - intent: cancel
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: utter_cancelled
+
+- rule: deviner_age
+  steps:
+    - intent: quel_age
+    - action: utter_analyse
+
+- rule: reponse remerciement
+  steps:
+    - intent: remerciement
+    - action: utter_reponse_remerciement

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepper says</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"></script>
+    <style>
+        /* Set the page to be divided into two halves */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .content {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background-color: lightgray;
+            height: 180px;
+        }
+        .redirect {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            overflow: hidden;
+        }
+        /* Add some styles for better appearance */
+
+        .iframe-container {
+            height: 540px;
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h3 id="dy_user"></h3>
+    <h3 id="dy_rasa" style="color:#00F;"></h3>
+</div>
+<div class="redirect">
+    <iframe class="iframe-container" src="{{url_param}}?timestamp=" title="Redirected Page"></iframe>
+</div>
+
+<script>
+    const socket = io('http://localhost:5000');
+
+    socket.on('connect', () => {
+        console.log("Connected");
+    });
+
+    // Listen for the 'update_paragraph' event and update the <p> element
+    socket.on('update_transcript', (data) => {
+        const dy_user = document.getElementById('dy_user');
+        const dy_rasa = document.getElementById('dy_rasa');
+        dy_user.textContent = data.user;
+        dy_rasa.textContent = data.rasa;
+    });
+
+    socket.on('update_url', (data) => {
+        const iframe = document.querySelector('.iframe-container');
+        if (data.url_param) {
+            const timestamp = new Date().getTime(); // avoid cache
+            iframe.src = `${data.url_param}?timestamp=${timestamp}`;
+        }
+    });
+
+</script>
+
+</body>
+</html>
+    
